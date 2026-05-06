@@ -62,8 +62,8 @@ function getGeneKeySnippet(gateNumber) {
     }
   } catch (err) {
     console.error("Error reading Gene Key file:", err);
+    return `Error: ${err.message} at ${path.join(__dirname, 'KnowledgeBase', 'GeneKeys')}`;
   }
-  return "Your profound journey through this Gene Key awaits.";
 }
 
 // HD Wheel starts at 41st Hexagram at 2°00'00" Aquarius (302 degrees)
