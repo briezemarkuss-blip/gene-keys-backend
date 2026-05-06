@@ -15,7 +15,8 @@ app.use(express.json());
 // Helper to get text snippet for a specific gate
 function getGeneKeySnippet(gateNumber) {
   try {
-    const kbPath = path.resolve(__dirname, '../KnowledgeBase/GeneKeys');
+    // In the deployed repo, KnowledgeBase is a sibling of index.js
+    const kbPath = path.join(__dirname, 'KnowledgeBase', 'GeneKeys');
     const files = fs.readdirSync(kbPath);
     const regex = new RegExp(`^The ${gateNumber}(st|nd|rd|th) Gene Key`);
     const file = files.find(f => regex.test(f));
