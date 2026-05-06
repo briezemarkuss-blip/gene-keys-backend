@@ -52,8 +52,9 @@ function getGeneKeySnippet(gateNumber) {
         foundProse = true;
         proseLines.push(line);
         
-        // If we have collected enough text (e.g. ~3 paragraphs worth), we can stop
-        if (proseLines.join(' ').length > 800) {
+        // If we have collected enough text AND we are at the end of a sentence
+        const currentText = proseLines.join(' ');
+        if (currentText.length > 800 && /[.!?]["']?$/.test(line)) {
           break;
         }
       }
